@@ -10,22 +10,15 @@ export default defineConfig({
       },
     }),
   ],
-  build: {
-    outDir: '../../backend/ProjectPortal/wwwroot',
-    emptyOutDir: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          msal: ['@azure/msal-browser', '@azure/msal-react'],
-          aggrid: ['ag-grid-react']
-        }
+build: {
+  emptyOutDir: true,
+  rollupOptions: {
+    output: {
+      manualChunks: {
+        react: ['react', 'react-dom'],
+        msal: ['@azure/msal-browser', '@azure/msal-react'],
+        aggrid: ['ag-grid-react']
       }
     }
-  },
-  server: {
-    proxy: {
-      '/api': 'http://localhost:5246' // dev only
-    }
   }
-})
+},
