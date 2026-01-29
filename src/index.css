@@ -1,0 +1,192 @@
+:root {
+
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Light mode */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+
+  /* Form */
+  --form-bg: #ffffff;
+  --form-text: #000000;
+  --input-bg: #f8f8f8;
+  --input-text: #000000;
+  --border-color: #ccc;
+
+  /* Buttons & links */
+  --button-bg: #007bff;
+  --button-text: #ffffff;
+  --link-color: #007bff;
+  --link-hover: #0056b3;
+
+  /* Cards */
+  --card-bg: #ffffff;
+  --card-text: #000000;
+
+  /* Icons */
+  --icon-color: #888;
+  --accent-color: #007bff;
+
+  /* Chat bubbles */
+  --bubble-outgoing-bg: #231b4b; /* Prime-purple always */
+  --bubble-outgoing-text: #ffffff;
+  --bubble-incoming-bg: #f1f1f1; /* Light gray */
+  --bubble-incoming-text: #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: canvas;
+    --text-color: canvastext;
+
+    --form-bg: #1e1e1e;
+    --form-text: #ffffff;
+    --input-bg: #2a2a2a;
+    --input-text: #ffffff;
+    --border-color: #444;
+
+    --button-bg: #0056b3;
+    --button-text: #ffffff;
+    --link-color: #4da3ff;
+    --link-hover: #1f6feb;
+
+    --card-bg: #2a2a2a;
+    --card-text: #ffffff;
+
+    --icon-color: #aaa;
+    --accent-color: #4da3ff;
+
+    /* Dark mode chat bubbles */
+    --bubble-incoming-bg: #2a2a2a; /* Dark gray */
+    --bubble-incoming-text: #ffffff;
+  }
+}
+
+/* Page setup */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+  transition: background-color 0.15s linear, color 0.15s linear;
+  font-family: inherit;
+}
+
+/* Outgoing (User) bubble */
+.card.outgoing-bubble {
+  background-color: var(--bubble-outgoing-bg) !important;
+  color: var(--bubble-outgoing-text) !important;
+  border: none !important;
+  border-radius: 0.7rem;
+}
+
+/* Incoming (Agent) bubble */
+.card.incoming-bubble {
+  background-color: var(--bubble-incoming-bg) !important;
+  color: var(--bubble-incoming-text) !important;
+  border: none !important;
+  border-radius: 0.7rem;
+}
+
+/* Remove Bootstrap card-body white background */
+.card-body {
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* Make sure Markdown text inherits bubble color */
+.outgoing-bubble .card-text,
+.incoming-bubble .card-text {
+  color: inherit !important;
+}
+
+/* Bootstrap bg-primary override (matches outgoing bubble) */
+.bg-primary {
+  background-color: var(--bubble-outgoing-bg) !important;
+  color: var(--bubble-outgoing-text) !important;
+}
+
+/* Agent messages override */
+.message {
+  background-color: var(--bubble-incoming-bg) !important;
+  color: var(--bubble-incoming-text) !important;
+}
+
+/* Cards general */
+.card {
+  background-color: var(--card-bg) !important;
+  color: var(--card-text) !important;
+}
+
+/* Links */
+a {
+  font-weight: 500;
+  color: var(--link-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--link-hover);
+}
+
+/* Buttons */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--link-color);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Dark mode fix for chat input area */
+@media (prefers-color-scheme: dark) {
+  .chatcontainer,
+  footer,
+  .input-group,
+  .form-control {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  .message-text {
+    background-color: transparent !important;
+    color: var(--button-text) !important;
+  }
+
+  .chat-bubble span,
+  .chat-bubble div {
+    background-color: transparent !important;
+  }
+
+  input,
+  textarea {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #444 !important;
+  }
+}
+nav {
+  background-color: #231b4b;
+}
+button {
+  background-color: #231b4b !important;
+}
+a {
+    cursor: pointer;
+}
